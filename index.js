@@ -1,10 +1,19 @@
 (function startGame() {
-  let weeks = document
-    .querySelector(".js-calendar-graph-svg")
-    .querySelectorAll("g g");
+  let weeks = [
+    ...document.querySelector(".js-calendar-graph-svg").querySelectorAll("g g"),
+  ];
+  let lastWeek = weeks.pop();
   let title = document.querySelector(".js-yearly-contributions div h2");
   let rows = 7;
   let columns = 52;
+
+  function clearLastWeek(week) {
+    [...week.children].forEach((day) => {
+      day.style = "display: none";
+    });
+  }
+
+  clearLastWeek(lastWeek);
 
   function getDays(week) {
     let days = week.querySelectorAll(".ContributionCalendar-day");
@@ -23,5 +32,50 @@
     return dayObj;
   }
 
-  let board = [...weeks].map((week) => getDays(week));
+  let board = weeks.map((week) => getDays(week));
+
+  function logic(alive, neighbors) {
+    if (alive) {
+      if (neighbors > 3) {
+        return 0;
+      }
+      if (neighbors < 2) {
+        return 0;
+      }
+      return 1;
+    } else {
+      if (neighbors === 3) {
+        return 1;
+      }
+    }
+    return 0;
+  }
+
+  function findNeighbors(board) {
+    for (let i = 0; i < columns; i++) {
+      const prevColumn = i === 0 ? columns - 1 : i - 1;
+      const nextColumn = i === columns - 1 ? 0 : i + 1;
+      for (let j = 0; j < rows; j++) {
+        const prevRow = j === 0 ? rows - 1 : j - 1;
+        const nextRow = j === rows - 1 ? 0 : j + 1;
+        let neighbors = 0;
+        neighbors += board[prevColumn][prevRow].alive;
+        neighbors += board[prevColumn][j].alive;
+        neighbors += board[prevColumn][nextRow].alive;
+
+        neighbors += board[i][prevRow].alive;
+        neighbors += board[i][nextRow].alive;
+
+        neighbors += board[nextColumn][prevRow].alive;
+        neighbors += board[nextColumn][j].alive;
+        neighbors += board[nextColumn][nextRow].alive;
+        console.log(neighbors);
+
+        board[i][j].neighbors = neighbors;
+        board[i][j].next = logic(board[i][j].alive, neighbors);
+      }
+    }
+    console.log(board);
+  }
+  findNeighbors(board);
 })();

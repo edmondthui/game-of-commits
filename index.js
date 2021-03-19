@@ -28,7 +28,6 @@
       alive: commits > 0 ? 1 : 0,
       next: 0,
     };
-    console.log(dayObj);
     return dayObj;
   }
 
@@ -36,10 +35,7 @@
 
   function logic(alive, neighbors) {
     if (alive) {
-      if (neighbors > 3) {
-        return 0;
-      }
-      if (neighbors < 2) {
+      if (neighbors > 3 || neighbors < 2) {
         return 0;
       }
       return 1;
@@ -51,7 +47,7 @@
     return 0;
   }
 
-  function findNeighbors(board) {
+  function setNext(board) {
     for (let i = 0; i < columns; i++) {
       const prevColumn = i === 0 ? columns - 1 : i - 1;
       const nextColumn = i === columns - 1 ? 0 : i + 1;
@@ -69,13 +65,26 @@
         neighbors += board[nextColumn][prevRow].alive;
         neighbors += board[nextColumn][j].alive;
         neighbors += board[nextColumn][nextRow].alive;
-        console.log(neighbors);
 
         board[i][j].neighbors = neighbors;
         board[i][j].next = logic(board[i][j].alive, neighbors);
       }
     }
-    console.log(board);
   }
-  findNeighbors(board);
+
+  function displayBoard(board) {
+    let greens = ["#9BE9A8", "#40C463", "#30A14E", "#216E39"];
+    for (let i = 0; i < columns; i++) {
+      for (let j = 0; j < rows; j++) {
+        let randomGreen = greens[Math.floor(Math.random() * greens.length)];
+        if (board[i][j].alive) {
+          board[i][j].day.setAttribute("style", "fill:" + randomGreen);
+        } else {
+          board[i][j].day.setAttribute("style", "fill: #eeeeee");
+        }
+      }
+    }
+  }
+  setNext(board);
+  displayBoard(board);
 })();

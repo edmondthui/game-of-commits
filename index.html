@@ -4,7 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index.css" media="screen" />
+    <link rel="icon" type="image/png" href="src/assets/greensquare.png" />
     <title>Github's game of commits</title>
   </head>
-  <body></body>
+
+  <body>
+    <h1>Github's game of commits</h1>
+    <p>
+      To play this on your Github profile drag this bookmarklet,
+      <a
+        href="javascript:(function()%7B!function()%7Blet%20e%3D%5B...document.querySelector(%22.js-calendar-graph-svg%22).querySelectorAll(%22g%20g%22)%5D%2Ct%3De.pop()%2Cn%3Ddocument.querySelector(%22.js-yearly-contributions%20div%20h2%22)%2Cl%3D7%2Ci%3D52%2Cr%3D0%3Bfunction%20o(e)%7Breturn%5B...e.querySelectorAll(%22.ContributionCalendar-day%22)%5D.map(e%3D%3E(function(e)%7Blet%20t%3DparseInt(e.getAttribute(%22data-count%22))%3Breturn%7Bday%3Ae%2Ccommits%3At%2Calive%3At%3E0%3F1%3A0%2Cnext%3A0%7D%7D)(e))%7D%5B...t.children%5D.forEach(e%3D%3E%7Be.style%3D%22display%3A%20none%22%7D)%3Blet%20a%3De.map(e%3D%3Eo(e))%3Bfunction%20u(e%2Ct)%7Breturn%20e%3Ft%3E3%7C%7Ct%3C2%3F0%3A1%3A3%3D%3D%3Dt%3F1%3A0%7D!function%20e()%7Bif(function(e)%7Bfor(let%20t%3D0%3Bt%3Ci%3Bt%2B%2B)%7Bconst%20n%3D0%3D%3D%3Dt%3Fi-1%3At-1%2Cr%3Dt%3D%3D%3Di-1%3F0%3At%2B1%3Bfor(let%20i%3D0%3Bi%3Cl%3Bi%2B%2B)%7Bconst%20o%3D0%3D%3D%3Di%3Fl-1%3Ai-1%2Ca%3Di%3D%3D%3Dl-1%3F0%3Ai%2B1%3Blet%20c%3D0%3Bc%2B%3De%5Bn%5D%5Bo%5D.alive%2Cc%2B%3De%5Bn%5D%5Bi%5D.alive%2Cc%2B%3De%5Bn%5D%5Ba%5D.alive%2Cc%2B%3De%5Bt%5D%5Bo%5D.alive%2Cc%2B%3De%5Bt%5D%5Ba%5D.alive%2Cc%2B%3De%5Br%5D%5Bo%5D.alive%2Cc%2B%3De%5Br%5D%5Bi%5D.alive%2Cc%2B%3De%5Br%5D%5Ba%5D.alive%2Ce%5Bt%5D%5Bi%5D.neighbors%3Dc%2Ce%5Bt%5D%5Bi%5D.next%3Du(e%5Bt%5D%5Bi%5D.alive%2Cc)%7D%7D%7D(a)%2Cfunction(e)%7Blet%20t%3D%5B%22%239BE9A8%22%2C%22%2340C463%22%2C%22%2330A14E%22%2C%22%23216E39%22%5D%3Bfor(let%20n%3D0%3Bn%3Ci%3Bn%2B%2B)for(let%20i%3D0%3Bi%3Cl%3Bi%2B%2B)%7Blet%20l%3Dt%5BMath.floor(Math.random()*t.length)%5D%3Be%5Bn%5D%5Bi%5D.alive%3Fe%5Bn%5D%5Bi%5D.day.setAttribute(%22style%22%2C%22fill%3A%22%2Bl)%3Ae%5Bn%5D%5Bi%5D.day.setAttribute(%22style%22%2C%22fill%3A%20%23eeeeee%22)%7D%7D(a)%2Cr%2B%2B%2Cfunction(e)%7Blet%20t%3D!1%3Bfor(let%20n%3D0%3Bn%3Ci%3Bn%2B%2B)for(let%20i%3D0%3Bi%3Cl%3Bi%2B%2B)%7Bconst%20l%3De%5Bn%5D%5Bi%5D%3Bl.alive!%3D%3Dl.next%26%26(t%3D!0)%2Cl.alive%3Dl.next%7Dreturn%20t%7D(a))%7Blet%20t%3D%60%24%7Br%7D%20generations%60%3Bn.innerText%3Dt%2CsetTimeout(e%2C300)%7Delse%7Blet%20e%3D%60Game%20of%20commits%20finished%20after%20%24%7Br%7D%20generations%60%3Bn.innerText%3De%7D%7D()%7D()%7D)()"
+        >Github's game of commits</a
+      >
+      to your bookmarks bar and then click the link on your Github profile.
+    </p>
+    <img src="src/assets/GameOfGithub.gif" alt="" />
+  </body>
 </html>

@@ -90,7 +90,7 @@
     let changed = false;
     for (let i = 0; i < columns; i ++) {
       for (let j = 0; j < rows; j ++) {
-        const day = grid[i][j]
+        const day = board[i][j]
         if (day.alive !== day.next) {
           changed = true
         }

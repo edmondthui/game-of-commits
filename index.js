@@ -107,7 +107,7 @@
     generation++;
     let changed = iterateBoard(board);
     if (!changed) {
-      let titleText = `Game of Commits finished after ${generation} generations`
+      let titleText = `Game of commits finished after ${generation} generations`
       title.innerText = titleText;
     } else {
       let titleText = `${generation} generations`

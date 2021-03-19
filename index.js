@@ -85,6 +85,21 @@
       }
     }
   }
+
+  function iterateBoard(board) {
+    let changed = false;
+    for (let i = 0; i < columns; i ++) {
+      for (let j = 0; j < rows; j ++) {
+        const day = grid[i][j]
+        if (day.alive !== day.next) {
+          changed = true
+        }
+        day.alive = day.next
+      }
+    }
+    return changed
+  }
   setNext(board);
+  iterateBoard(board);
   displayBoard(board);
 })();

@@ -8,13 +8,13 @@
   let columns = 52;
   let generation = 0;
 
-  function clearLastWeek(week) {
+  function clearWeek(week) {
     [...week.children].forEach((day) => {
       day.style = "display: none";
     });
   }
 
-  clearLastWeek(lastWeek);
+  clearWeek(lastWeek);
 
   function getDays(week) {
     let days = week.querySelectorAll(".ContributionCalendar-day");

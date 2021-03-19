@@ -6,6 +6,7 @@
   let title = document.querySelector(".js-yearly-contributions div h2");
   let rows = 7;
   let columns = 52;
+  let generation = 0;
 
   function clearLastWeek(week) {
     [...week.children].forEach((day) => {
@@ -99,7 +100,21 @@
     }
     return changed
   }
-  setNext(board);
-  iterateBoard(board);
-  displayBoard(board);
+
+  function engine() {
+    setNext(board);
+    displayBoard(board);
+    generation++;
+    let changed = iterateBoard(board);
+    if (!changed) {
+      let titleText = `Game of Commits finished after ${generation} generations`
+      title.innerText = titleText;
+    } else {
+      let titleText = `${generation} generations`
+      title.innerText = titleText;
+      setTimeout(engine, 300);
+    }
+  }
+
+  engine();
 })();

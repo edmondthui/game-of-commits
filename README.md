@@ -25,4 +25,4 @@ Follow the instructions on the page:
 * Go to any Github profile
 * Click that bookmarked link
 
-![Bookmarklet Demo](https://edmondhui.com/game-of-commits/bookmarkletdemo.gif)
+![Gif Demo](https://edmondhui.com/game-of-commits/bookmarkletdemo.gif)

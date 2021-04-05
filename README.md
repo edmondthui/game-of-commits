@@ -2,7 +2,7 @@
 
 Run this code snippet in the browser console on a Github profile and it will turn your commits into Conway's Game of Life!
 
-This is inspired by bahmutov's Game of Github which was no longer working. I fixed the code and modernized the code.
+This is inspired by bahmutov's Game of Github which was no longer working. I fixed and modernized the code.
 
 ![Gif Demo](https://edmondhui.com/game-of-commits/gameofcommits.gif)
 
